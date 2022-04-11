@@ -1,0 +1,25 @@
+{
+  "name": "palms-ballroom-server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palms-ballroom/palms-ballroom-server.git"
+  },
+  "keywords": [],
+  "author": "palms-ballroom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palms-ballroom/palms-ballroom-server/issues"
+  },
+  "homepage": "https://github.com/palms-ballroom/palms-ballroom-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0"
+  }
+}
