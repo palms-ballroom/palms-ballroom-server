@@ -51,12 +51,19 @@ class Controller {
   }
   static async update(req, res, next) {
     try {
-      const { name, status, price, images, city, hotelApiId } = req.body;
+      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, clicked, city } = req.body;
       const ballroom = await Ballroom.update(req.params.hotelApiId, {
+        hotelApiId: +hotelApiId,
+        userId: +userId,
         name,
-        status,
-        price,
-        images,
+        pricePerHour: +pricePerHour,
+        pricePerDay: +pricePerDay,
+        mainImg,
+        images1,
+        images2,
+        images3,
+        images4,
+        clicked: +clicked,
         city,
       });
       res.status(200).json(ballroom);
