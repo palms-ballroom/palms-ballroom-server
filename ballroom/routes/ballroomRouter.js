@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const Controller = require("../controllers/BallroomController");
 
-router.get("/", Controller.getAll);
-router.get("/:hotelApiId", Controller.getOne);
-router.get("/city/:city", Controller.getHotelByCity);
-router.post("/", Controller.create);
-router.put("/:hotelApiId", Controller.update);
-router.delete("/:hotelApiId", Controller.delete);
+router.get("/", Controller.getAll); //aman
+router.get("/:hotelApiId", Controller.getOne); //aman
+router.get("/city/:city", Controller.getHotelByCity); //aman
+router.post("/", Controller.create); //aman
+router.put("/:hotelApiId", Controller.update); //aman
+router.delete("/:hotelApiId", Controller.delete); //aman
+
+module.exports = router;

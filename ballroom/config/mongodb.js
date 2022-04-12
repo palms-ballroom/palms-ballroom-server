@@ -10,7 +10,7 @@ const url = process.env.MONGODB_ATLAS_URI;
 const client = new MongoClient(url);
 
 // Database Name
-const dbName = "ballroom";
+const dbName = "palmsBallroom";
 
 let db;
 
