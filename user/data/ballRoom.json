@@ -1,0 +1,29 @@
+[
+  {
+    "hotelId": "331903910rw13131",
+    "name": "Wow Hotel",
+    "price": 5000000,
+    "status": "PAID",
+    "bookDateEnd": "Apr 30, 2022",
+    "bookDateStart": "Apr 31, 2022",
+    "userId": 1
+  },
+  {
+    "hotelId": "331903910rw13132",
+    "name": "Good Hotel",
+    "price": 10000000,
+    "status": "UNPAIN",
+    "bookDateEnd": "Apr 18, 2022",
+    "bookDateStart": "Apr 20, 2022",
+    "userId": 2
+  },
+  {
+    "hotelId": "331903910rw13133",
+    "name": "Bad Boi",
+    "price": 1000000,
+    "status": "UNPAID",
+    "bookDateEnd": "Apr 22, 2022",
+    "bookDateStart": "Apr 25, 2022",
+    "userId": 3
+  }
+]
