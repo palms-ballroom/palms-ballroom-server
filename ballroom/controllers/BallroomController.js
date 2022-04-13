@@ -43,6 +43,12 @@ class Controller {
         images4,
         clicked: +clicked,
         city,
+        booked: [
+          {
+            customerId: "",
+            date: "",
+          },
+        ],
       });
       res.status(201).json(ballroom);
     } catch (error) {
@@ -75,6 +81,68 @@ class Controller {
     try {
       const ballroom = await Ballroom.delete(req.params.hotelApiId);
       res.status(200).json(ballroom);
+    } catch (error) {
+      next(error);
+    }
+  }
+  static async bookingHotelById(req, res, next) {
+    try {
+      const { customerId, bookingDate, name } = req.body;
+      const ballroom = await Ballroom.findOne(+req.params.hotelApiId);
+      console.log(ballroom);
+      if (!ballroom) {
+        const newBallroom = await Ballroom.create({
+          hotelApiId: +req.params.hotelApiId,
+          name,
+          clicked: 1,
+        });
+        res.status(400).json({
+          message: "Hotel not registered yet",
+          data: newBallroom,
+        });
+        return;
+      } else if (!ballroom.booked) {
+        await Ballroom.update(req.params.hotelApiId, {
+          clicked: ballroom.clicked + 1,
+        });
+        res.status(400).json({
+          message: "Hotel not registered yet",
+        });
+        return;
+      }
+      await Ballroom.update(req.params.hotelApiId, {
+        clicked: ballroom.clicked + 1,
+      });
+
+      let isbooked = false;
+      ballroom.booked.forEach((el, i) => {
+        if (el.date === bookingDate) {
+          isbooked = true;
+        }
+      });
+
+      if (isbooked) {
+        res.status(400).json({
+          message: "This date is already booked",
+        });
+      } else {
+        const newBooked = ballroom.booked;
+        newBooked.push({
+          customerId: +customerId,
+          date: bookingDate,
+        });
+        await Ballroom.update(req.params.hotelApiId, {
+          booked: newBooked,
+        });
+        res.status(200).json({
+          message: "Added date to booked list",
+          data: {
+            customerId,
+            date: bookingDate,
+            pricePerDay: ballroom.pricePerDay,
+          },
+        });
+      }
     } catch (error) {
       next(error);
     }
