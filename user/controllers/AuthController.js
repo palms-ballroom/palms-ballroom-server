@@ -40,7 +40,6 @@ class AuthController {
               email: email
           }
       });
-      console.log(foundEmail)
       if(!foundEmail) throw{name: 'invalid email/password'}
 
       const validatingPassword = comparePassword(password, foundEmail.password)

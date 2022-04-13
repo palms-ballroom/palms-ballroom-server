@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Ballrooms", {
+    await queryInterface.createTable("Transactions", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,24 +12,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
       status: {
         type: Sequelize.STRING,
         defaultValue: "UNPAID",
       },
       price: {
-        allowNull: false,
         type: Sequelize.INTEGER,
       },
       bookDateStart: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       bookDateEnd: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       userMongoId: {
@@ -55,6 +48,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Ballrooms");
+    await queryInterface.dropTable("Transactions");
   },
 };
+
