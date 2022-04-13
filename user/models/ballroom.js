@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Ballroom.belongsTo(models.Customer, { foreignKey: "customerId" });
+      Ballroom.belongsTo(models.User, { foreignKey: "userId" });
     }
   }
   Ballroom.init(
@@ -55,7 +55,8 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: "Book date end cannot be empty" },
         },
       },
-      customerId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
+      userMongoId: DataTypes.STRING
     },
     {
       sequelize,

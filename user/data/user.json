@@ -1,0 +1,26 @@
+[
+  {
+      "email": "BudiN@gmail.com",
+      "username": "BudiN",
+      "password": "BudiN",
+      "role": "Admin",
+      "phoneNumber": "0876767878",
+      "address": "Kebon Jeruk"
+  },
+  {
+      "email": "SantosaR@rocketmail.com",
+      "username": "SantosaR",
+      "password": "SantosaR",
+      "role": "Admin",
+      "phoneNumber": "08909032",
+      "address": "Kebayoran"
+  },
+  {
+      "email": "PromiseH@gmail.com",
+      "username": "PromiseH",
+      "password": "PromiseH",
+      "role": "Customer",
+      "phoneNumber": "08606040",
+      "address": "Bintaro"
+  }
+]

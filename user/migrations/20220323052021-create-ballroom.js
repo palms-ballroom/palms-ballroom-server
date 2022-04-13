@@ -32,10 +32,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      customerId: {
+      userMongoId: {
+        type: Sequelize.DATE,
+      },
+      userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Customers",
+          model: "Users",
           key: "id",
         },
         onUpdate: "cascade",
