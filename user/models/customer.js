@@ -61,6 +61,18 @@ module.exports = (sequelize, DataTypes) => {
       phoneNumber: DataTypes.STRING,
       address: DataTypes.STRING,
       role: DataTypes.STRING,
+      imageUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Image cannot be empty",
+          },
+          notEmpty: {
+            msg: "Image cannot be empty",
+          }
+        },
+      },
     },
     {
       sequelize,

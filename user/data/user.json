@@ -1,26 +1,38 @@
 [
   {
-      "email": "BudiN@gmail.com",
-      "username": "BudiN",
-      "password": "BudiN",
+      "email": "DavidB@gmail.com",
+      "username": "DavidB",
+      "password": "DavidB",
       "role": "Admin",
       "phoneNumber": "0876767878",
-      "address": "Kebon Jeruk"
+      "address": "Kebon Jeruk",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/%C3%80lex_Roig_Mangues.jpg"
   },
   {
-      "email": "SantosaR@rocketmail.com",
-      "username": "SantosaR",
-      "password": "SantosaR",
+      "email": "RonaldoC@rocketmail.com",
+      "username": "RonaldoC",
+      "password": "RonaldoC",
       "role": "Admin",
       "phoneNumber": "08909032",
-      "address": "Kebayoran"
+      "address": "Kebayoran",
+      "imageUrl": "https://images.news18.com/ibnlive/uploads/2021/09/cristiano-ronaldo-163047908716x9.jpg"
   },
   {
-      "email": "PromiseH@gmail.com",
+      "email": "MessiL@gmail.com",
       "username": "PromiseH",
       "password": "PromiseH",
       "role": "Customer",
       "phoneNumber": "08606040",
-      "address": "Bintaro"
+      "address": "Bintaro",
+      "imageUrl": "https://i.pinimg.com/originals/de/a1/2f/dea12f81803aeca231f6eb1b39611efe.jpg"
+  },
+  {
+      "email": "WikaS@gmail.com",
+      "username": "WikaS",
+      "password": "WikaS",
+      "role": "Customer",
+      "phoneNumber": "086060402",
+      "address": "Bintaro",
+      "imageUrl": "https://media-exp1.licdn.com/dms/image/C5603AQFMv0hTGP91Lg/profile-displayphoto-shrink_800_800/0/1527214801932?e=1655337600&v=beta&t=LdbbUlh7fplHWgbspNThceu5G2CtXruabtTLt3n__Zk"
   }
 ]
