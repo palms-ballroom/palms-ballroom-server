@@ -19,7 +19,7 @@ module.exports = {
        element.bookDateStart = new Date(element.bookDateStart)
        element.bookDateEnd = new Date(element.bookDateEnd)
      });
-     await queryInterface.bulkInsert("Ballrooms", data, {})
+     await queryInterface.bulkInsert("Transactions", data, {})
   },
 
   async down (queryInterface, Sequelize) {
@@ -29,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Ballrooms', null, {});
+     await queryInterface.bulkDelete('Transactions', null, {});
   }
 };

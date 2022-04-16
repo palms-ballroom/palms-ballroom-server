@@ -42,10 +42,10 @@ let authorize = async function(req, res, next){
   }
 }
 
-let authorizeAdmin = async function(req, res, next){
+let authorizeCustomer = async function(req, res, next){
   try {
     const { role } = req.user
-    if(role !== 'Admin'){
+    if(role !== 'Customer'){
       throw{name: "Forbidden"}
     }
     return next()
@@ -58,6 +58,6 @@ let authorizeAdmin = async function(req, res, next){
 module.exports = {
   authenticate,
   authorize,
-  authorizeAdmin,
+  authorizeCustomer,
   authenticateCustomer
 }

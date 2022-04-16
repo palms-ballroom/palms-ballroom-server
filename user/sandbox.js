@@ -1,2 +1,2 @@
-const cobatanggal = new Date("Apr 30, 2022").getDate()
+const cobatanggal = new Date("2022-04-15");
 console.log(cobatanggal);

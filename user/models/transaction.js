@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Ballroom extends Model {
+  class Transaction extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Ballroom.belongsTo(models.User, { foreignKey: "userId" });
+      Transaction.belongsTo(models.User, { foreignKey: "customerId" });
     }
   }
-  Ballroom.init(
+  Transaction.init(
     {
       hotelId: {
         type: DataTypes.STRING,
@@ -20,14 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: { msg: "Hotel Id cannot be empty" },
           notEmpty: { msg: "Hotel Id cannot be empty" },
-        },
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: { msg: "Hotel name cannot be empty" },
-          notEmpty: { msg: "Hotel name cannot be empty" },
         },
       },
       price: {
@@ -41,27 +33,16 @@ module.exports = (sequelize, DataTypes) => {
       status: DataTypes.STRING,
       bookDateStart: {
         type: DataTypes.DATE,
-        allowNull: false,
-        validate: {
-          notNull: { msg: "Book date start cannot be empty" },
-          notEmpty: { msg: "Book date start cannot be empty" },
-        },
       },
       bookDateEnd: {
         type: DataTypes.DATE,
-        allowNull: false,
-        validate: {
-          notNull: { msg: "Book date end cannot be empty" },
-          notEmpty: { msg: "Book date end cannot be empty" },
-        },
       },
-      userId: DataTypes.INTEGER,
-      userMongoId: DataTypes.STRING
+      customerId: DataTypes.INTEGER,
     },
     {
       sequelize,
-      modelName: "Ballroom",
+      modelName: "Transaction",
     }
   );
-  return Ballroom;
+  return Transaction;
 };
