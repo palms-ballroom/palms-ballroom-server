@@ -7,6 +7,7 @@ const cors = require("cors");
 const port = process.env.PORT || 4001;
 const { connect } = require("./config/mongodb");
 const ballroomRoute = require("./routes/ballroomRouter");
+const errorHandler = require("./middlewares/errorHandler");
 
 app.use(cors());
 app.use(express.json());
@@ -18,9 +19,10 @@ app.get("/", (req, res) => {
 
 app.use("/ballroom", ballroomRoute);
 
+app.use(errorHandler);
+
 connect()
   .then((db) => {
-    console.log("db: ", db);
     app.listen(port, () => {
       console.log(`Example app listening on port http://localhost:${port}`);
     });

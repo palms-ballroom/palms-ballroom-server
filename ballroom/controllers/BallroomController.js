@@ -12,15 +12,30 @@ class Controller {
   static async getOne(req, res, next) {
     try {
       const ballroom = await Ballroom.findOne(req.params.hotelApiId);
-      console.log(req.params.hotelApiId);
+      if (!ballroom || ballroom === null) {
+        console.log("masuk");
+        throw {
+          name: "Not Found",
+          code: 404,
+          message: "Hotel not found",
+        };
+      }
       res.status(200).json(ballroom);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
   static async getHotelByCity(req, res, next) {
     try {
       const ballrooms = await Ballroom.findByCity(req.params.city);
+      if (!ballrooms) {
+        throw {
+          name: "Not Found",
+          code: 404,
+          message: "Hotel not found",
+        };
+      }
       res.status(200).json(ballrooms);
     } catch (error) {
       next(error);
@@ -28,8 +43,7 @@ class Controller {
   }
   static async create(req, res, next) {
     try {
-      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, clicked, city } = req.body;
-      console.log(req.body);
+      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, city } = req.body;
       const ballroom = await Ballroom.create({
         hotelApiId: +hotelApiId,
         userId: +userId,
@@ -41,7 +55,7 @@ class Controller {
         images2,
         images3,
         images4,
-        clicked: +clicked,
+        clicked: 0,
         city,
         booked: [
           {
@@ -57,8 +71,16 @@ class Controller {
   }
   static async update(req, res, next) {
     try {
-      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, clicked, city } = req.body;
-      const ballroom = await Ballroom.update(req.params.hotelApiId, {
+      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, city } = req.body;
+      const ballroom = await Ballroom.findOne(req.params.hotelApiId);
+      if (!ballroom) {
+        throw {
+          name: "Not Found",
+          code: 404,
+          message: "Hotel not found",
+        };
+      }
+      await Ballroom.update(req.params.hotelApiId, {
         hotelApiId: +hotelApiId,
         userId: +userId,
         name,
@@ -69,17 +91,24 @@ class Controller {
         images2,
         images3,
         images4,
-        clicked: +clicked,
         city,
       });
-      res.status(200).json(ballroom);
+      res.status(200).json("Ballroom updated");
     } catch (error) {
       next(error);
     }
   }
   static async delete(req, res, next) {
     try {
-      const ballroom = await Ballroom.delete(req.params.hotelApiId);
+      const ballroom = await Ballroom.findOne(req.params.hotelApiId);
+      if (!ballroom) {
+        throw {
+          name: "Not Found",
+          code: 404,
+          message: "Hotel not found",
+        };
+      }
+      await Ballroom.delete(req.params.hotelApiId);
       res.status(200).json(ballroom);
     } catch (error) {
       next(error);
@@ -89,7 +118,6 @@ class Controller {
     try {
       const { customerId, bookingDate, name } = req.body;
       const ballroom = await Ballroom.findOne(+req.params.hotelApiId);
-      console.log(ballroom);
       if (!ballroom) {
         const newBallroom = await Ballroom.create({
           hotelApiId: +req.params.hotelApiId,
@@ -113,14 +141,12 @@ class Controller {
       await Ballroom.update(req.params.hotelApiId, {
         clicked: ballroom.clicked + 1,
       });
-
       let isbooked = false;
       ballroom.booked.forEach((el, i) => {
         if (el.date === bookingDate) {
           isbooked = true;
         }
       });
-
       if (isbooked) {
         res.status(400).json({
           message: "This date is already booked",
@@ -137,9 +163,8 @@ class Controller {
         res.status(200).json({
           message: "Added date to booked list",
           data: {
-            customerId,
-            date: bookingDate,
-            pricePerDay: ballroom.pricePerDay,
+            bookDateStart: bookingDate,
+            price: ballroom.pricePerDay,
           },
         });
       }

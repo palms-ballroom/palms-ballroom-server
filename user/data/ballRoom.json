@@ -5,7 +5,7 @@
     "status": "PAID",
     "bookDateEnd": "Apr 30, 2022",
     "bookDateStart": "Apr 31, 2022",
-    "userId": 1
+    "customerId": 3
   },
   {
     "hotelId": "331903910rw13132",
@@ -13,7 +13,7 @@
     "status": "UNPAIN",
     "bookDateEnd": "Apr 18, 2022",
     "bookDateStart": "Apr 20, 2022",
-    "userId": 2
+    "customerId": 3
   },
   {
     "hotelId": "331903910rw13133",
@@ -21,6 +21,6 @@
     "status": "UNPAID",
     "bookDateEnd": "Apr 22, 2022",
     "bookDateStart": "Apr 25, 2022",
-    "userId": 3
+    "customerId": 3
   }
 ]
