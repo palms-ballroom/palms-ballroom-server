@@ -8,7 +8,8 @@
     "init": "^0.1.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
-    "sequelize": "^6.18.0"
+    "sequelize": "^6.18.0",
+    "xendit-node": "^1.21.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",

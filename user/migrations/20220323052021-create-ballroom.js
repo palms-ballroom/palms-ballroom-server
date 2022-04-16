@@ -25,10 +25,7 @@ module.exports = {
       bookDateEnd: {
         type: Sequelize.DATE,
       },
-      userMongoId: {
-        type: Sequelize.DATE,
-      },
-      userId: {
+      customerId: {
         type: Sequelize.INTEGER,
         references: {
           model: "Users",
@@ -51,4 +48,3 @@ module.exports = {
     await queryInterface.dropTable("Transactions");
   },
 };
-

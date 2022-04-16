@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Transaction.belongsTo(models.User, { foreignKey: "userId" });
+      Transaction.belongsTo(models.User, { foreignKey: "customerId" });
     }
   }
   Transaction.init(
@@ -32,13 +32,12 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: DataTypes.STRING,
       bookDateStart: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       bookDateEnd: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
-      userId: DataTypes.INTEGER,
-      userMongoId: DataTypes.STRING
+      customerId: DataTypes.INTEGER,
     },
     {
       sequelize,
