@@ -17,6 +17,8 @@ app.use("/xendit", xenditRoute);
 
 app.use(errHandler);
 
-app.listen(PORT, function () {
-  console.log(`online ${PORT}`);
-});
+// app.listen(PORT, function () {
+//   console.log(`online ${PORT}`);
+// });
+
+module.exports = app
