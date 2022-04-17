@@ -12,12 +12,14 @@ class AuthController {
         role: "Admin",
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
+        imageUrl: req.body.imageUrl
       });
       res.status(201).json({
         msg: `Register Compleate`,
         identity: newAuthor,
       });
     } catch (err) {
+      console.log(err)
       next(err);
     }
   }
@@ -31,6 +33,7 @@ class AuthController {
         role: "Customer",
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
+        imageUrl: req.body.imageUrl
       });
       res.status(201).json({
         msg: `Register Compleate`,
