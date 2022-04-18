@@ -22,5 +22,13 @@
     "bookDateEnd": "Apr 22, 2022",
     "bookDateStart": "Apr 25, 2022",
     "customerId": 3
+  },
+  {
+    "hotelId": "331903910rw13155",
+    "price": 10000000,
+    "status": "UNPAID",
+    "bookDateEnd": "Apr 26, 2022",
+    "bookDateStart": "Apr 28, 2022",
+    "customerId": 4
   }
 ]
