@@ -10,7 +10,21 @@ class TransactionController {
       });
       res.status(200).json(allRoom);
     } catch (error) {
-      res.status(500).json({ msg: "error bang" });
+      next(error);
+    }
+  }
+
+  static async getTransactionByHotelId(req, res, next) {
+    try {
+      const { hotelId } = req.params;
+      const transactions = await Transaction.findAll({
+        where: {
+          hotelId,
+        },
+      });
+      res.status(200).json(transactions);
+    } catch (error) {
+      next(error);
     }
   }
 

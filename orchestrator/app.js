@@ -12,6 +12,7 @@ const typeDefs = gql`
     email: String
     password: String
     phoneNumber: String
+    imageUrl: String
     address: String
     role: String
     createdAt: String
@@ -78,9 +79,11 @@ const typeDefs = gql`
     getBallrooms: [Ballroom] #aman
     getBallroomByHotelId(hotelApiId: ID!): Ballroom #aman
     userTransactions(access_token: String): [Transaction]
+    hotelTransactions(access_token: String, hotelApiId: ID!): [Transaction]
   }
   type Mutation {
     registerUser(access_token: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
+    registerCustomer(imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
     loginUser(email: String, password: String): LoginInfo #aman
     addBallroom(
       hotelApiId: ID!
@@ -91,7 +94,6 @@ const typeDefs = gql`
       images1: String
       images2: String
       images3: String
-      images4: String
       city: String
     ): String #aman
     updateBallroom(
@@ -103,7 +105,6 @@ const typeDefs = gql`
       images1: String
       images2: String
       images3: String
-      images4: String
       city: String
     ): String #aman
     deleteBallroom(hotelApiId: ID!): String #aman
@@ -141,7 +142,6 @@ const resolvers = {
     getBallroomByHotelId: async (_, args) => {
       try {
         const response = await axios.get(`${ballroomUrl}/ballroom/${args.hotelApiId}`);
-        console.log(response);
         if (response.status !== 200) {
           return response.data.message;
         }
@@ -164,8 +164,40 @@ const resolvers = {
         console.log(error);
       }
     },
+    hotelTransactions: async (_, args) => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${userUrl}/ballroom/${args.hotelApiId}`,
+          headers: {
+            access_token: args.access_token,
+          },
+        });
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   Mutation: {
+    registerUser: async (_, args) => {
+      try {
+        const response = await axios({
+          method: "post",
+          url: `${userUrl}/registerCustomer`,
+          data: {
+            email: args.email,
+            username: args.username,
+            password: args.password,
+            phoneNumber: args.phoneNumber,
+            address: args.address,
+          },
+        });
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
     registerUser: async (_, args) => {
       try {
         const response = await axios({
@@ -202,7 +234,6 @@ const resolvers = {
           url: `${ballroomUrl}/ballroom`,
           data: args,
         });
-        console.log(response.data);
         return "Ballroom Created Successfully";
       } catch (error) {
         console.log(error);
