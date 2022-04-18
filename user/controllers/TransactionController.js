@@ -30,28 +30,22 @@ class TransactionController {
 
   static async bookHotel(req, res, next) {
     try {
-      let { bookDateStart, bookDateEnd, price } = req.body;
+      let { bookDateStart, price } = req.body;
       const { hotelId } = req.params;
       bookDateStart = new Date(bookDateStart);
-      // bookDateEnd = new Date(bookDateEnd);
       let obj = {
         hotelId,
         bookDateStart,
-        // bookDateEnd,
         price,
         status: "UNPAID",
-        customerId: req.user.id, //pake customerId ini nanti
+        customerId: req.user.id
       };
-      // const dateStart = bookDateStart.getDate();
-      // const dateEnd = bookDateEnd.getDate();
-      // const difference = Math.abs(dateEnd - dateStart);
       const newTransaction = await Transaction.create(obj);
       res.status(201).json({
         msg: "create transaction complete",
         transaction: newTransaction,
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
