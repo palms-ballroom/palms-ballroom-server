@@ -30,16 +30,25 @@ afterAll(async () => {
 
 
 
-// describe("Get Transaction Test", function(){
-//   describe('Success', function(){
-//     it('return access_token with status 200', async function(){
-//       const res = await request(app).get('/transaction').set("access_token", access_token)
+describe("Get Transaction Test", function(){
+  describe('Success', function(){
+    it('return access_token with status 200', async function(){
+      const res = await request(app).get('/transaction').set("access_token", access_token)
 
-//       expect(res.status).toBe(200)  
-//       expect(res.body).toBeInstanceOf(Array);
-//     })
-//   })
-// })
+      expect(res.status).toBe(200)  
+      expect(res.body).toBeInstanceOf(Array);
+    })
+  })
+  describe('Fail to load', function(){
+    it('jwt is not provided', async function(){
+      const res = await request(app).get('/transaction')
+
+      expect(res.status).toBe(401)  
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+    })
+  })
+})
 
 
 describe("Post Transaction Test", function(){
@@ -56,6 +65,55 @@ describe("Post Transaction Test", function(){
       expect(res.body.transaction).toHaveProperty("price", expect.any(Number))
       expect(res.body.transaction).toHaveProperty("bookDateStart")
       expect(res.body.transaction).toHaveProperty("bookDateStart", expect.any(String))  
+    })
+  })
+  describe('Booking Fail Test', function(){
+    it('Book date is empty return status 400', async function(){
+      const payload = {
+        bookDateStart: '',
+        price: 323132131
+      }
+      const res = await request(app).post('/transaction/1313122').set("access_token", access_token).send(payload)
+      expect(res.status).toBe(400)  
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+    })
+    it('Price is empty return status 400', async function(){
+      const payload = {
+        bookDateStart: '2022-02-25',
+        price: ''
+      }
+      const res = await request(app).post('/transaction/1313122').set("access_token", access_token).send(payload)
+      expect(res.status).toBe(400)  
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+      expect(res.body.msg).toBeInstanceOf(Array);
+    })
+    it('Unauthorized. return status 401', async function(){
+      const payload = {
+        bookDateStart: '2022-02-25',
+        price: 13131
+      }
+      const res = await request(app).post('/transaction/1313122').send(payload)
+      expect(res.status).toBe(401)  
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+    })
+    it('Forbidden. Admin cannot book a ballroom return status 403', async function(){
+      const payload = {
+        bookDateStart: '2022-02-25',
+        price: 11144
+      }
+      const adminData = {
+        email: "DavidB@gmail.com",
+        password: "DavidB",
+      };
+      const doLogin = await request(app).post("/login").send(adminData);
+      access_token = doLogin.body.token
+      const res = await request(app).post('/transaction/1313122').set("access_token", access_token).send(payload)
+      expect(res.status).toBe(403)  
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
     })
   })
 })

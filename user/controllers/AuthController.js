@@ -19,7 +19,6 @@ class AuthController {
         identity: newAuthor,
       });
     } catch (err) {
-      console.log(err)
       next(err);
     }
   }
@@ -56,7 +55,6 @@ class AuthController {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
-      console.log(email, password);
       const foundEmail = await User.findOne({
         where: {
           email: email,
@@ -83,7 +81,6 @@ class AuthController {
         role: foundEmail.role,
       });
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }
