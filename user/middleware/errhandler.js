@@ -2,9 +2,9 @@ const errHandler = function (err, req, res, next) {
   if (err) {
     switch (err.name) {
       case "SequelizeValidationError":
-        temporary = []
-        for(let i = 0; i < err.errors.length;i++){
-          temporary.push(err.errors[i].message)
+        temporary = [];
+        for (let i = 0; i < err.errors.length; i++) {
+          temporary.push(err.errors[i].message);
         }
         res.status(400).json({ msg: temporary });
         break;
@@ -20,7 +20,7 @@ const errHandler = function (err, req, res, next) {
       case "Unauthorized":
         res.status(403).json({ msg: "Unauthorized" });
         break;
-      
+
       case "jwt must be provided":
         res.status(401).json({ msg: "jwt must be provided" });
         break;
@@ -28,7 +28,7 @@ const errHandler = function (err, req, res, next) {
       case "News Id not found":
         res.status(404).json({ msg: "News Id not found" });
         break;
-      
+
       case "Forbidden":
         res.status(403).json({ msg: "Forbidden" });
         break;
