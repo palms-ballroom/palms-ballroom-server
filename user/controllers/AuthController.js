@@ -44,37 +44,6 @@ class AuthController {
       console.log(error);
       next(error);
     }
-    // const uploadImgBB = await axios({
-    //   method: "post",
-    //   url: `https://api.imgbb.com/1/upload?key=d7f8ef6e35c6735dc7698da9e9d1192b&name=${req.file.originalname}`,
-    //   header: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    //   data: {
-    //     image: req.file,
-    //   },
-    // });
-    // console.log(uploadImgBB);
-    // res.status(200).json(uploadImgBB);
-    // res.status(200).json(form);
-    // try {
-    //   // const newAuthor = await User.create({
-    //   //   email: req.body.email,
-    //   //   username: req.body.username,
-    //   //   password: req.body.password,
-    //   //   role: "Customer",
-    //   //   imageUrl: req.body.imageUrl,
-    //   //   phoneNumber: req.body.phoneNumber,
-    //   //   address: req.body.address,
-    //   // });
-    //   // res.status(201).json({
-    //   //   msg: `Register Compleate`,
-    //   //   identity: newAuthor,
-    //   // });
-    // } catch (err) {
-    //   console.log(err);
-    //   next(err);
-    // }
   }
 
   static async seeUser(req, res, next) {
