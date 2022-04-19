@@ -6,6 +6,7 @@ class TransactionController {
       const allRoom = await Transaction.findAll({
         where: {
           customerId: req.user.id,
+          status: "UNPAID"
         },
       });
       res.status(200).json(allRoom);
@@ -22,7 +23,7 @@ class TransactionController {
           hotelId,
         },
       });
-      if(transactions.length === 0 ) throw { name: "Hotel Id not found" }
+      if (transactions.length === 0) throw { name: "Hotel Id not found" };
       res.status(200).json(transactions);
     } catch (error) {
       next(error);
@@ -39,7 +40,7 @@ class TransactionController {
         bookDateStart,
         price,
         status: "UNPAID",
-        customerId: req.user.id
+        customerId: req.user.id,
       };
       const newTransaction = await Transaction.create(obj);
       res.status(201).json({

@@ -82,7 +82,7 @@ const typeDefs = gql`
     hotelTransactions(access_token: String, hotelApiId: ID!): [Transaction]
   }
   type Mutation {
-    registerUser(access_token: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
+    registerUser(access_token: String, imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
     registerCustomer(imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
     loginUser(email: String, password: String): LoginInfo #aman
     addBallroom(
@@ -109,7 +109,7 @@ const typeDefs = gql`
     ): String #aman
     deleteBallroom(hotelApiId: ID!): String #aman
     bookingBallroom(access_token: String, customerId: ID!, hotelApiId: ID!, bookingDate: String!, name: String, role: String): String #aman
-    createInvoice(access_token: String, customerId: ID!, price: Int): XenditInvoices
+    createInvoice(hotelApiId: Int, access_token: String, transactionId: ID!, price: Int): XenditInvoices
   }
 `;
 
@@ -154,7 +154,7 @@ const resolvers = {
       try {
         const response = await axios({
           method: "get",
-          url: `${userUrl}/ballroom`,
+          url: `${userUrl}/transaction`,
           headers: {
             access_token: args.access_token,
           },
@@ -168,7 +168,7 @@ const resolvers = {
       try {
         const response = await axios({
           method: "get",
-          url: `${userUrl}/ballroom/${args.hotelApiId}`,
+          url: `${userUrl}/transaction/${args.hotelApiId}`,
           headers: {
             access_token: args.access_token,
           },
@@ -180,8 +180,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    registerUser: async (_, args) => {
+    registerCustomer: async (_, args) => {
       try {
+        console.log(args);
         const response = await axios({
           method: "post",
           url: `${userUrl}/registerCustomer`,
@@ -189,11 +190,12 @@ const resolvers = {
             email: args.email,
             username: args.username,
             password: args.password,
+            imageUrl: args.imageUrl,
             phoneNumber: args.phoneNumber,
             address: args.address,
           },
         });
-        return response.data;
+        return "Customer add Succesfully";
       } catch (error) {
         console.log(error);
       }
@@ -210,6 +212,7 @@ const resolvers = {
             email: args.email,
             username: args.username,
             password: args.password,
+            imageUrl: args.imageUrl,
             phoneNumber: args.phoneNumber,
             address: args.address,
           },
@@ -264,10 +267,11 @@ const resolvers = {
           url: `${ballroomUrl}/ballroom/transaction/${args.hotelApiId}`,
           data: args,
         });
+        console.log("masuk 271");
         const { bookDateStart, price } = ballroom.data.data;
         const transaction = await axios({
           method: "post",
-          url: `${userUrl}/ballroom/${args.hotelApiId}`,
+          url: `${userUrl}/transaction/${args.hotelApiId}`,
           headers: {
             access_token: args.access_token,
           },
@@ -278,7 +282,7 @@ const resolvers = {
         });
         return transaction.data.msg;
       } catch (error) {
-        // console.log(error.response.data.message);
+        console.log(error.response);
         return error.response.data.message;
       }
     },

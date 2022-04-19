@@ -14,4 +14,3 @@ router.post("/transaction/:hotelId", authorizeCustomer, TransactionController.bo
 router.post("/register", AuthController.register);
 
 module.exports = router;
-

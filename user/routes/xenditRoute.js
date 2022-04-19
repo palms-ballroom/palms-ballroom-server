@@ -3,9 +3,9 @@ const router = express.Router();
 const { authenticate } = require("../middleware/authAuthor");
 const Controller = require("../controllers/xenditController");
 
-router.use(authenticate);
 
-router.patch("/callbackXendit/:hotelId", Controller.getCallbackXendit);
+router.use(authenticate);
+router.post("/callbackxendit", Controller.getCallbackXendit);
 
 router.post("/", Controller.createPayment);
 
