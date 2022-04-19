@@ -60,6 +60,8 @@ const typeDefs = gql`
     id: Int
     email: String
     role: String
+    username: String
+    imageUrl: String
   }
   type Transaction {
     id: ID

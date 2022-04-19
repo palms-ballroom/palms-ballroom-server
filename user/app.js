@@ -8,7 +8,7 @@ const errHandler = require("./middleware/errhandler");
 const xenditRoute = require("./routes/xenditRoute");
 
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/xendit", xenditRoute);
 app.use("/", router);

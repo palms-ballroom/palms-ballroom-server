@@ -38,10 +38,10 @@ class Controller {
             },
           }
         );
-        if(updateOne[0] === 0) throw {name: 'Transaction id not found'}
+        if (updateOne[0] === 0) throw { name: "Transaction id not found" };
         res.status(200).json({ msg: "success" });
       } else {
-        throw { name: 'Payment Fail'};
+        throw { name: "Payment Fail" };
       }
     } catch (err) {
       next(err);

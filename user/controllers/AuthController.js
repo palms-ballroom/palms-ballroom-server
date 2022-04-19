@@ -81,6 +81,8 @@ class AuthController {
         id: foundEmail.id,
         email: foundEmail.email,
         role: foundEmail.role,
+        username: foundEmail.username,
+        imageUrl: foundEmail.imageUrl,
       });
     } catch (err) {
       next(err);
