@@ -109,7 +109,7 @@ const typeDefs = gql`
     ): String #aman
     deleteBallroom(hotelApiId: ID!): String #aman
     bookingBallroom(access_token: String, customerId: ID!, hotelApiId: ID!, bookingDate: String!, name: String, role: String): String #aman
-    createInvoice(access_token: String, customerId: ID!, price: Int): XenditInvoices
+    createInvoice(hotelApiId: Int, access_token: String, transactionId: ID!, price: Int): XenditInvoices
   }
 `;
 
