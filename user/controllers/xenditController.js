@@ -54,38 +54,27 @@ class Controller {
 
   static async getCallbackXendit(req, res, next) {
     try {
-      const { hotelId } = req.params;
-      const customerId = req.user.id;
-      const selectTransaction = await Transaction.findOne({
-        where: {
-          hotelId,
-          customerId,
-        },
-      });
-      if (!selectTransaction) throw { name: "Hotel Id not found" };
-      if (selectTransaction.status === "PAID")
-        throw { name: "Your booking has already been paid" };
-      else {
-        await Transaction.update(
-          { status: "PAID" },
-          {
-            where: {
-              hotelId,
-              customerId,
-            },
-          }
-        );
-        const finishOne = await Transaction.findOne({
-          where: {
-            hotelId,
-            customerId,
-          },
-        });
-        res.status(201).json({
-          msg: "Payment Complete",
-          data: finishOne,
-        });
-      }
+      console.log(req.body);
+      // const status = req.body.status;
+      // if (status === "PAID") {
+      //   const changeStatus = await Order.update(
+      //     {
+      //       status: "paid",
+      //     },
+      //     {
+      //       where: {
+      //         CustomerId: req.body.external_id,
+      //       },
+      //     }
+      //   );
+      //   res.status(200).json({ message: "success" });
+      // } else {
+      //   throw {
+      //     code: 402,
+      //     name: "Payment Failed",
+      //     message: "Payment Failed",
+      //   };
+      // }
     } catch (err) {
       next(err);
     }

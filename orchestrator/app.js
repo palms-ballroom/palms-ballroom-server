@@ -154,7 +154,7 @@ const resolvers = {
       try {
         const response = await axios({
           method: "get",
-          url: `${userUrl}/ballroom`,
+          url: `${userUrl}/transaction`,
           headers: {
             access_token: args.access_token,
           },
@@ -168,7 +168,7 @@ const resolvers = {
       try {
         const response = await axios({
           method: "get",
-          url: `${userUrl}/ballroom/${args.hotelApiId}`,
+          url: `${userUrl}/transaction/${args.hotelApiId}`,
           headers: {
             access_token: args.access_token,
           },
@@ -267,10 +267,11 @@ const resolvers = {
           url: `${ballroomUrl}/ballroom/transaction/${args.hotelApiId}`,
           data: args,
         });
+        console.log("masuk 271");
         const { bookDateStart, price } = ballroom.data.data;
         const transaction = await axios({
           method: "post",
-          url: `${userUrl}/ballroom/${args.hotelApiId}`,
+          url: `${userUrl}/transaction/${args.hotelApiId}`,
           headers: {
             access_token: args.access_token,
           },
@@ -281,7 +282,7 @@ const resolvers = {
         });
         return transaction.data.msg;
       } catch (error) {
-        // console.log(error.response.data.message);
+        console.log(error.response);
         return error.response.data.message;
       }
     },

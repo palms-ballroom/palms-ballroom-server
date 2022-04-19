@@ -13,7 +13,7 @@ class AuthController {
         role: "Admin",
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
-        imageUrl: req.body.imageUrl
+        imageUrl: req.body.imageUrl,
       });
       res.status(201).json({
         msg: `Register Compleate`,
@@ -50,11 +50,12 @@ class AuthController {
       const allUser = await User.findAll();
       res.status(200).json(allUser);
     } catch (error) {
-      next(err)
+      next(err);
     }
   }
 
   static async login(req, res, next) {
+    console.log("masuk");
     try {
       const { email, password } = req.body;
       const foundEmail = await User.findOne({
@@ -83,6 +84,7 @@ class AuthController {
         role: foundEmail.role,
       });
     } catch (err) {
+      console.log(err);
       next(err);
     }
   }
