@@ -4,8 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const port = process.env.PORT || 4001;
-const { connect } = require("./config/mongodb");
+
 const ballroomRoute = require("./routes/ballroomRouter");
 const errorHandler = require("./middlewares/errorHandler");
 
@@ -21,12 +20,4 @@ app.use("/ballroom", ballroomRoute);
 
 app.use(errorHandler);
 
-connect()
-  .then((db) => {
-    app.listen(port, () => {
-      console.log(`Example app listening on port http://localhost:${port}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+module.exports = app

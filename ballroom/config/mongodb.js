@@ -33,4 +33,5 @@ function getDB() {
 module.exports = {
   connect,
   getDB,
+  client
 };

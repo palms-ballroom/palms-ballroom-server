@@ -1,5 +1,4 @@
 const { getDB } = require("../config/mongodb");
-const { ObjectId } = require("mongodb");
 
 class BallroomModel {
   static async create(ballroom) {
