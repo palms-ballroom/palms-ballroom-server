@@ -10,8 +10,7 @@ router.post("/registerCustomer", AuthController.registerCustomer);
 router.use(authenticate); //authorizeCustomer,
 router.get("/transaction", TransactionController.getTransactionByCustomerId);
 router.get("/transaction/:hotelId", TransactionController.getTransactionByHotelId);
-router.post("/transaction/:hotelId", authorizeCustomer, TransactionController.bookHotel);
+router.post("/transaction/:hotelId", TransactionController.bookHotel);
 router.post("/register", AuthController.register);
 
 module.exports = router;
-

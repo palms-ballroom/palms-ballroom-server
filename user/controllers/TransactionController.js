@@ -22,7 +22,7 @@ class TransactionController {
           hotelId,
         },
       });
-      if(transactions.length === 0 ) throw { name: "Hotel Id not found" }
+      if (transactions.length === 0) throw { name: "Hotel Id not found" };
       res.status(200).json(transactions);
     } catch (error) {
       next(error);
@@ -31,6 +31,8 @@ class TransactionController {
 
   static async bookHotel(req, res, next) {
     try {
+      console.log(req.body);
+      console.log("masuk");
       let { bookDateStart, price } = req.body;
       const { hotelId } = req.params;
       bookDateStart = new Date(bookDateStart);
@@ -39,7 +41,7 @@ class TransactionController {
         bookDateStart,
         price,
         status: "UNPAID",
-        customerId: req.user.id
+        customerId: req.user.id,
       };
       const newTransaction = await Transaction.create(obj);
       res.status(201).json({
