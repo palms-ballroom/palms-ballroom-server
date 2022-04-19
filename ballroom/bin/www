@@ -1,0 +1,13 @@
+const app = require('../app')
+const port = process.env.PORT || 4001;
+const { connect } = require("../config/mongodb");
+
+connect()
+  .then((db) => {
+    app.listen(port, () => {
+      console.log(`Example app listening on port http://localhost:${port}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
