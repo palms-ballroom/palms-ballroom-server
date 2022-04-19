@@ -27,7 +27,7 @@ class Controller {
   static async getHotelByCity(req, res, next) {
     try {
       const ballrooms = await Ballroom.findByCity(req.params.city);
-      if (!ballrooms) {
+      if (ballrooms.length === 0) {
         throw {
           name: "Not Found",
           code: 404,
