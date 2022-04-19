@@ -10,34 +10,42 @@ class TransactionController {
       });
       res.status(200).json(allRoom);
     } catch (error) {
-      res.status(500).json({ msg: "error bang" });
+      next(error);
+    }
+  }
+
+  static async getTransactionByHotelId(req, res, next) {
+    try {
+      const { hotelId } = req.params;
+      const transactions = await Transaction.findAll({
+        where: {
+          hotelId,
+        },
+      });
+      res.status(200).json(transactions);
+    } catch (error) {
+      next(error);
     }
   }
 
   static async bookHotel(req, res, next) {
     try {
-      let { bookDateStart, bookDateEnd, price } = req.body;
+      let { bookDateStart, price } = req.body;
       const { hotelId } = req.params;
       bookDateStart = new Date(bookDateStart);
-      // bookDateEnd = new Date(bookDateEnd);
       let obj = {
         hotelId,
         bookDateStart,
-        // bookDateEnd,
         price,
         status: "UNPAID",
-        customerId: req.user.id, //pake customerId ini nanti
+        customerId: req.user.id
       };
-      // const dateStart = bookDateStart.getDate();
-      // const dateEnd = bookDateEnd.getDate();
-      // const difference = Math.abs(dateEnd - dateStart);
       const newTransaction = await Transaction.create(obj);
       res.status(201).json({
         msg: "create transaction complete",
         transaction: newTransaction,
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

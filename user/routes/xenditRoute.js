@@ -5,7 +5,7 @@ const Controller = require("../controllers/xenditController");
 
 router.use(authenticate);
 
-router.post("/callbackXendit", Controller.getCallbackXendit);
+router.patch("/callbackXendit/:hotelId", Controller.getCallbackXendit);
 
 router.post("/", Controller.createPayment);
 

@@ -1,46 +1,90 @@
-const { createInvoice, expireInvoice, getInvoice } = require("../API/xendit");
+const { createInvoice } = require("../API/xendit");
 const { Transaction } = require("../models");
 
 class Controller {
   static async createPayment(req, res, next) {
-    const { price, hotelApiId } = req.body;
-    const email = req.user.email;
-    const customerId = req.user.id;
-    const payment = await createInvoice(`${customerId}`, +price, email); //nanti tambah hotelApiId
-    console.log(payment);
-    res.status(200).json({
-      message: "Invoice Created",
-      data: {
-        external_id: payment.external_id,
-        status: payment.status,
-        amount: payment.amount,
-        payer_email: payment.payer_email,
-        invoice_url: payment.invoice_url,
-      },
-    });
+    try {
+      const { price } = req.body;
+      const email = req.user.email;
+      const customerId = req.user.id;
+      const payment = await createInvoice(`${customerId}`, +price, email); //nanti tambah hotelApiId
+      console.log(payment);
+      res.status(201).json({
+        message: "Invoice Created",
+        data: {
+          external_id: payment.external_id,
+          status: payment.status,
+          amount: payment.amount,
+          payer_email: payment.payer_email,
+          invoice_url: payment.invoice_url,
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
   }
+  // possible will be used again
+  // static async getCallbackXendit(req, res, next) {
+  //   try {
+  //     console.log(req.body);
+  //     const status = req.body.status;
+  //     if (status === "PAID") {
+  //       const changeStatus = await Transaction.update(
+  //         {
+  //           status: "PAID",
+  //         },
+  //         {
+  //           where: {
+  //             CustomerId: req.body.external_id,
+  //           },
+  //         }
+  //       );
+  //       res.status(200).json({ message: "success" });
+  //     } else {
+  //       throw {
+  //         code: 402,
+  //         name: "Payment Failed",
+  //         message: "Payment Failed",
+  //       };
+  //     }
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // }
+
   static async getCallbackXendit(req, res, next) {
     try {
-      console.log(req.body);
-      const status = req.body.status;
-      if (status === "PAID") {
-        const changeStatus = await Transaction.update(
-          {
-            status: "PAID",
-          },
+      const { hotelId } = req.params;
+      const customerId = req.user.id;
+      const selectTransaction = await Transaction.findOne({
+        where: {
+          hotelId,
+          customerId,
+        },
+      });
+      if (!selectTransaction) throw { name: "Hotel Id not found" };
+      if (selectTransaction.status === "PAID")
+        throw { name: "Your booking has already been paid" };
+      else {
+        await Transaction.update(
+          { status: "PAID" },
           {
             where: {
-              CustomerId: req.body.external_id,
+              hotelId,
+              customerId,
             },
           }
         );
-        res.status(200).json({ message: "success" });
-      } else {
-        throw {
-          code: 402,
-          name: "Payment Failed",
-          message: "Payment Failed",
-        };
+        const finishOne = await Transaction.findOne({
+          where: {
+            hotelId,
+            customerId,
+          },
+        });
+        res.status(201).json({
+          msg: "Payment Complete",
+          data: finishOne,
+        });
       }
     } catch (err) {
       next(err);
