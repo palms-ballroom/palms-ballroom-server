@@ -41,7 +41,6 @@ describe("POST /registerCustomer", function(){
       imageUrl: 'dwkdwokwokdwok'
     }
       const res = await request(app).post('/registerCustomer').send(payload)
-      console.log(res.body.identity.password, '<<<<<<<')
       expect(res.statusCode).toBe(201);
       expect(res.body.identity).toHaveProperty("id")
       expect(res.body.identity).toHaveProperty("id", expect.any(Number))

@@ -26,7 +26,6 @@ class AuthController {
 
   static async registerCustomer(req, res, next) {
     let data = req.body;
-    console.log(data);
     try {
       const newCustomer = await User.create({
         email: data.email,
@@ -42,7 +41,6 @@ class AuthController {
         identity: newCustomer,
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
     // const uploadImgBB = await axios({

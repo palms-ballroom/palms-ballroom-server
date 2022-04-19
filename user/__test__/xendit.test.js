@@ -90,7 +90,6 @@ describe("Update Payment from UNPAID to PAID test", function(){
   describe('Update Fail', function(){
     it('Unauthorized. return status 401', async function(){
       const res = await request(app).patch('/xendit/callbackXendit/331903910rw13155')
-      console.log(res)
       expect(res.status).toBe(401)
       expect(res.body).toHaveProperty("msg")
       expect(res.body).toHaveProperty("msg", res.body.msg)

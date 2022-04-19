@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
-const userUrl = "http://localhost:3001";
+const userUrl = "http://localhost:4002";
 const ballroomUrl = "http://localhost:4001";
 const redis = require("./config/redis");
 const axios = require("axios");

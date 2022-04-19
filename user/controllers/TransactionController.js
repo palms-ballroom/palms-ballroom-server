@@ -22,6 +22,7 @@ class TransactionController {
           hotelId,
         },
       });
+      if(transactions.length === 0 ) throw { name: "Hotel Id not found" }
       res.status(200).json(transactions);
     } catch (error) {
       next(error);
