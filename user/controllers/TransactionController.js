@@ -6,6 +6,7 @@ class TransactionController {
       const allRoom = await Transaction.findAll({
         where: {
           customerId: req.user.id,
+          status: "UNPAID"
         },
       });
       res.status(200).json(allRoom);
@@ -31,8 +32,6 @@ class TransactionController {
 
   static async bookHotel(req, res, next) {
     try {
-      console.log(req.body);
-      console.log("masuk");
       let { bookDateStart, price } = req.body;
       const { hotelId } = req.params;
       bookDateStart = new Date(bookDateStart);

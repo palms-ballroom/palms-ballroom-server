@@ -40,6 +40,14 @@
     "customerId": 4
   },
   {
+    "hotelId": "331903910rw13156",
+    "price": 10000000,
+    "status": "PAID",
+    "bookDateEnd": "Apr 3, 2022",
+    "bookDateStart": "Apr 4, 2022",
+    "customerId": 4
+  },
+  {
     "hotelId": "331903910rw13155",
     "price": 10000000,
     "status": "UNPAID",

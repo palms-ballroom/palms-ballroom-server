@@ -1,6 +1,6 @@
 const errHandler = function (err, req, res, next) {
   if (err.code === "API_VALIDATION_ERROR") {
-    res.status(400).json({ msg: "price cannot be empty" });
+    res.status(400).json({ msg: "Error Validating API" });
   }
   switch (err.name) {
     case "SequelizeValidationError":
@@ -15,12 +15,16 @@ const errHandler = function (err, req, res, next) {
       res.status(400).json({ msg: "invalid email/password" });
       break;
 
-    case "Your booking has already been paid":
-      res.status(400).json({ msg: "Your booking has already been paid" });
+    case "Transaction id not found":
+      res.status(404).json({ msg: "Transaction id not found" });
       break;
 
     case "SequelizeUniqueConstraintError":
       res.status(400).json({ msg: "Email has been used" });
+      break;
+    
+    case "Payment Fail":
+      res.status(400).json({ msg: "Payment Fail" });
       break;
 
     case "Hotel Id not found":

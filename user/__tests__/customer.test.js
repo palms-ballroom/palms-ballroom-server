@@ -29,6 +29,7 @@ afterAll(async () => {
 });
 
 //register customer related
+
 describe("POST /registerCustomer", function(){
   describe("POST /register - success", function(){
     it('should return an object with status 201', async function(){
@@ -102,8 +103,7 @@ describe("POST /registerCustomer", function(){
   })
 })
 
-// ////register Admin
-
+//register Admin
 
 describe("POST /register", function(){
   describe("POST /register - success", function(){
@@ -177,7 +177,7 @@ describe("POST /register", function(){
   })
 })
 
-// //login user
+//login user
 
 describe("Login test", function(){
   describe('login success', function(){
@@ -213,7 +213,7 @@ describe("Login test", function(){
 })
 
 
-// //see user
+//see user
 
 describe("Get User", function(){
   describe('Success', function(){
