@@ -82,7 +82,7 @@ const typeDefs = gql`
     hotelTransactions(access_token: String, hotelApiId: ID!): [Transaction]
   }
   type Mutation {
-    registerUser(access_token: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
+    registerUser(access_token: String, imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
     registerCustomer(imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
     loginUser(email: String, password: String): LoginInfo #aman
     addBallroom(
@@ -180,8 +180,9 @@ const resolvers = {
     },
   },
   Mutation: {
-    registerUser: async (_, args) => {
+    registerCustomer: async (_, args) => {
       try {
+        console.log(args);
         const response = await axios({
           method: "post",
           url: `${userUrl}/registerCustomer`,
@@ -189,11 +190,12 @@ const resolvers = {
             email: args.email,
             username: args.username,
             password: args.password,
+            imageUrl: args.imageUrl,
             phoneNumber: args.phoneNumber,
             address: args.address,
           },
         });
-        return response.data;
+        return "Customer add Succesfully";
       } catch (error) {
         console.log(error);
       }
@@ -210,6 +212,7 @@ const resolvers = {
             email: args.email,
             username: args.username,
             password: args.password,
+            imageUrl: args.imageUrl,
             phoneNumber: args.phoneNumber,
             address: args.address,
           },
