@@ -24,80 +24,58 @@ describe("GET /ballroom/", () => {
   describe("- success get ballroom -", () => {
     it("GET /ballroom/ - success get all ballroom", async () => {
       const res = await request(app).get("/ballroom");
-      console.log("res.body: ", res.body);
-      // console.log("res: ", res);
       expect(res.status).toBe(200);
-      // expect(res.body).toBeInstanceOf(Array);
-      // expect(res.body.length).toBeGreaterThanOrEqual(20);
+      expect(res.body).toBeInstanceOf(Array);
+      expect(res.body.length).toBeGreaterThanOrEqual(25);
     });
 
-    // it("GET /customers/food - success get all food with accessToken", async () => {
-    //   const res = await request(app).get("/customers/food").set("accessToken", accessToken);
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Array);
-    //   expect(res.body.length).toBeGreaterThanOrEqual(20);
-    // });
+    it("GET /ballroom/:id - success get ballroom by Id 10391433", async () => {
+      const res = await request(app).get("/ballroom/10391433");
+      console.log("res.status: ", res.status);
+      console.log("res.body: ", res.body);
+      expect(res.status).toBe(200);
+      expect(res.body).toBeInstanceOf(Object);
+      expect(res.body).toHaveProperty("_id", expect.any(String));
+      expect(res.body).toHaveProperty("id", expect.any(Number));
+      expect(res.body).toHaveProperty("id", 2);
+      expect(res.body).toHaveProperty("hotelApiId", expect.any(Number));
+      expect(res.body).toHaveProperty("hotelApiId", 10391433);
+      expect(res.body).toHaveProperty("name", expect.any(String));
+      expect(res.body).toHaveProperty("name", "The Westin Jakarta");
+      expect(res.body).toHaveProperty("pricePerHour", expect.any(Number));
+      expect(res.body).toHaveProperty("pricePerHour", 64000000);
+      expect(res.body).toHaveProperty("pricePerDay", expect.any(Number));
+      expect(res.body).toHaveProperty("pricePerDay", 320000000);
+      expect(res.body).toHaveProperty("mainImg", expect.any(String));
+      expect(res.body).toHaveProperty("mainImg", "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/75/international-wedding.jpg");
+      expect(res.body).toHaveProperty("images1", expect.any(String));
+      expect(res.body).toHaveProperty("images1", "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/6f/wayra-level-67.jpg");
+      expect(res.body).toHaveProperty("images2", expect.any(String));
+      expect(res.body).toHaveProperty("images2", "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/df/24/24/exterior.jpg");
+      expect(res.body).toHaveProperty("images3", expect.any(String));
+      expect(res.body).toHaveProperty("images3", "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/76/traditional-wedding.jpg");
+      expect(res.body).toHaveProperty("clicked", expect.any(Number));
+      expect(res.body).toHaveProperty("clicked", 0);
+      expect(res.body).toHaveProperty("city", expect.any(String));
+      expect(res.body).toHaveProperty("city", 'Jakarta');
+      expect(res.body).toHaveProperty("booked");
+    });
+  
+  });
 
-    // it("GET /customers/food - success get food page 1 (1 query params) without accessToken", async () => {
-    //   const res = await request(app).get("/customers/food").query({ page: "1" });
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Object);
-    //   expect(res.body).toHaveProperty("count");
-    //   expect(res.body.count).toBeGreaterThanOrEqual(20);
-    //   expect(res.body).toHaveProperty("rows");
-    //   expect(res.body.rows).toBeInstanceOf(Array);
-    //   expect(res.body.rows).toHaveLength(9);
-    // });
+  describe("- fail get ballroom -", () => {
+    it("GET /ballroom/:id - fail get ballroom by Id 9999999", async () => {
+      const res = await request(app).get("/ballroom/9999999");
+      expect(res.body).toBeInstanceOf(Object);
+      expect(res.status).toBe(404);
+      expect(res.body).toHaveProperty("message", "Hotel not found");
+    });
 
-    // it("GET /customers/food - success get food page 1 (1 query params) with accessToken", async () => {
-    //   const res = await request(app)
-    //     .get("/customers/food")
-    //     .query({ page: "1" })
-    //     .set("accessToken", accessToken);
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Object);
-    //   expect(res.body).toHaveProperty("count");
-    //   expect(res.body.count).toBeGreaterThanOrEqual(20);
-    //   expect(res.body).toHaveProperty("rows");
-    //   expect(res.body.rows).toBeInstanceOf(Array);
-    //   expect(res.body.rows).toHaveLength(9);
-    // });
-
-    // it("GET /customers/food - success get food page 1, searchByName salmon, minPrice 50.000 (3 query params) without accessToken", async () => {
-    //   const res = await request(app)
-    //     .get("/customers/food")
-    //     .query({ page: "1", searchByName: "salmon", minPrice: "50000" });
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Object);
-    //   expect(res.body).toHaveProperty("count");
-    //   expect(res.body.count).toBeGreaterThanOrEqual(3);
-    //   expect(res.body).toHaveProperty("rows");
-    //   expect(res.body.rows).toBeInstanceOf(Array);
-    //   expect(res.body.rows).toHaveLength(3);
-    // });
-
-    // it("GET /customers/food - success get food page 1, searchByName salmon, minPrice 50.000 (3 query params) with accessToken", async () => {
-    //   const res = await request(app)
-    //     .get("/customers/food")
-    //     .query({ page: "1", searchByName: "salmon", minPrice: "50000" })
-    //     .set("accessToken", accessToken);
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Object);
-    //   expect(res.body).toHaveProperty("count");
-    //   expect(res.body.count).toBeGreaterThanOrEqual(3);
-    //   expect(res.body).toHaveProperty("rows");
-    //   expect(res.body.rows).toBeInstanceOf(Array);
-    //   expect(res.body.rows).toHaveLength(3);
-    // });
-
-    // it("GET /customers/food/:id - success get food by Id 1", async () => {
-    //   const res = await request(app).get("/customers/food/1");
-    //   expect(res.status).toBe(200);
-    //   expect(res.body).toBeInstanceOf(Object);
-    //   expect(res.body).toHaveProperty("message", "Found data with ID 1 Success");
-    //   expect(res.body).toHaveProperty("food");
-    //   expect(res.body.food.id).toBe(1);
-    //   expect(res.body.food).toHaveProperty("Category");
-    // });
+    it("GET /ballroom/:id - fail get ballroom by input null", async () => {
+      const res = await request(app).get("/ballroom/null");
+      expect(res.body).toBeInstanceOf(Object);
+      expect(res.status).toBe(404);
+      expect(res.body).toHaveProperty("message", "Hotel not found");
+    });
   });
 });

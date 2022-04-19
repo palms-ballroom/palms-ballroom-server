@@ -13,7 +13,6 @@ class Controller {
     try {
       const ballroom = await Ballroom.findOne(req.params.hotelApiId);
       if (!ballroom || ballroom === null) {
-        console.log("masuk");
         throw {
           name: "Not Found",
           code: 404,
@@ -22,7 +21,6 @@ class Controller {
       }
       res.status(200).json(ballroom);
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

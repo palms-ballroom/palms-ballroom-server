@@ -21,13 +21,3 @@ app.use("/ballroom", ballroomRoute);
 app.use(errorHandler);
 
 module.exports = app
-
-// connect()
-//   .then((db) => {
-//     app.listen(port, () => {
-//       console.log(`Example app listening on port http://localhost:${port}`);
-//     });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
