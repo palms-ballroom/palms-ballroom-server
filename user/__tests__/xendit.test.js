@@ -110,16 +110,6 @@ describe("Update Payment from UNPAID to PAID test", function(){
     })
   })
   describe('Update Fail', function(){
-    it('Unauthorized. return status 401', async function(){
-      const payload = { 
-        status: "PAID",
-        external_id: 1
-       }
-      const res = await request(app).post('/xendit/callbackxendit').send(payload)
-      expect(res.status).toBe(401)
-      expect(res.body).toHaveProperty("msg")
-      expect(res.body).toHaveProperty("msg", res.body.msg)
-    })
     it('Transaction id is not a number. return status 400', async function(){
       const payload = { 
         status: "PAID",
