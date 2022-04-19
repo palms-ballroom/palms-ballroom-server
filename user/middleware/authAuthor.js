@@ -3,8 +3,6 @@ const { readToken } = require("../helpers/jwt");
 
 let authenticate = async function (req, res, next) {
   try {
-    console.log("masuk");
-    console.log(req.body);
     if (!req.headers.access_token) throw { name: "jwt must be provided" };
     const token = readToken(req.headers.access_token);
     const user = await User.findOne({ where: { email: token.email } });

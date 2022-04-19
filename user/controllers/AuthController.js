@@ -55,7 +55,6 @@ class AuthController {
   }
 
   static async login(req, res, next) {
-    console.log("masuk");
     try {
       const { email, password } = req.body;
       const foundEmail = await User.findOne({
@@ -84,7 +83,6 @@ class AuthController {
         role: foundEmail.role,
       });
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }

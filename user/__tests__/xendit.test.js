@@ -43,9 +43,12 @@ afterAll(async () => {
 describe("Create Payment test", function(){
   describe('Payment success', function(){
     it('return access_token with status 201', async function(){
-      const payload = { price: 50000 }
+      const payload = { 
+        price: 50000,
+        hotelApiId: 'cobaId4040',
+        transactionId: "1",
+       }
       const res = await request(app).post('/xendit').set("access_token", access_token).send(payload)
-
       expect(res.status).toBe(201)
       expect(res.body.data).toHaveProperty('external_id')
       expect(res.body.data).toHaveProperty('external_id', expect.any(String))
@@ -55,7 +58,23 @@ describe("Create Payment test", function(){
   })
   describe('Payment fail', function(){
     it('price is empty. return code 400', async function(){
-      const payload = { price: '' }
+      const payload = { 
+        price: '',
+        hotelApiId: 'randomId4040',
+        transactionId: 4
+       }
+      const res = await request(app).post('/xendit').set("access_token", access_token).send(payload)
+
+      expect(res.status).toBe(400)
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+    })
+    it('Transaction is empty. return code 400', async function(){
+      const payload = { 
+        price: 50000,
+        hotelApiId: 'randomId4040',
+        transactionId: ''
+       }
       const res = await request(app).post('/xendit').set("access_token", access_token).send(payload)
 
       expect(res.status).toBe(400)
@@ -63,7 +82,11 @@ describe("Create Payment test", function(){
       expect(res.body).toHaveProperty("msg", res.body.msg)
     })
     it('Unauthorized. return status 401', async function(){
-      const payload = { price: 50000 }
+      const payload = { 
+        price: 50000,
+        hotelApiId: 'randomId4040',
+        transactionId: "4"
+       }
       const res = await request(app).post('/xendit').send(payload)
 
       expect(res.status).toBe(401)
@@ -76,35 +99,55 @@ describe("Create Payment test", function(){
 describe("Update Payment from UNPAID to PAID test", function(){
   describe('Update success', function(){
     it('return access_token with status 201', async function(){
-      const res = await request(app).patch('/xendit/callbackXendit/331903910rw13155').set("access_token", access_token)
-
-      expect(res.status).toBe(201)
-      expect(res.body.data).toHaveProperty('hotelId')
-      expect(res.body.data).toHaveProperty('hotelId', expect.any(String))
-      expect(res.body.data).toHaveProperty('customerId')
-      expect(res.body.data).toHaveProperty('customerId', expect.any(Number))
-      expect(res.body.data).toHaveProperty('status')
-      expect(res.body.data).toHaveProperty('status', expect.any(String))
+      const payload = { 
+        status: "PAID",
+        external_id: 1
+       }
+      const res = await request(app).post('/xendit/callbackxendit').set("access_token", access_token).send(payload)
+      expect(res.status).toBe(200)
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
     })
   })
   describe('Update Fail', function(){
     it('Unauthorized. return status 401', async function(){
-      const res = await request(app).patch('/xendit/callbackXendit/331903910rw13155')
+      const payload = { 
+        status: "PAID",
+        external_id: 1
+       }
+      const res = await request(app).post('/xendit/callbackxendit').send(payload)
       expect(res.status).toBe(401)
       expect(res.body).toHaveProperty("msg")
       expect(res.body).toHaveProperty("msg", res.body.msg)
     })
-    it('Updating alreadt paid ballroom. return status 400', async function(){
-      const res = await request(app).patch('/xendit/callbackXendit/331903910rw13155').set("access_token", access_token)
+    it('Transaction id is not a number. return status 400', async function(){
+      const payload = { 
+        status: "PAID",
+        external_id: 'randomId'
+       }
+      const res = await request(app).post('/xendit/callbackxendit').set("access_token", access_token).send(payload)
 
       expect(res.status).toBe(400)
       expect(res.body).toHaveProperty("msg")
       expect(res.body).toHaveProperty("msg", res.body.msg)
     })
-    it('Hotel Id not found. return status 404', async function(){
-      const res = await request(app).patch('/xendit/callbackXendit/331903910rw1').set("access_token", access_token)
-
+    it('Transaction Id not found. return status 404', async function(){
+      const payload = { 
+        status: "PAID",
+        external_id: 999999999
+       }
+      const res = await request(app).post('/xendit/callbackxendit').set("access_token", access_token).send(payload)
       expect(res.status).toBe(404)
+      expect(res.body).toHaveProperty("msg")
+      expect(res.body).toHaveProperty("msg", res.body.msg)
+    })
+    it('Transaction fail during create payment. return status 404', async function(){
+      const payload = { 
+        status: "PENDING",
+        external_id: 2
+       }
+      const res = await request(app).post('/xendit/callbackxendit').set("access_token", access_token).send(payload)
+      expect(res.status).toBe(400)
       expect(res.body).toHaveProperty("msg")
       expect(res.body).toHaveProperty("msg", res.body.msg)
     })

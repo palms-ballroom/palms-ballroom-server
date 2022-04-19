@@ -6,7 +6,6 @@ class Controller {
     try {
       const { price } = req.body;
       const email = req.user.email;
-      const customerId = req.user.id;
       const hotelApiId = req.body.hotelApiId;
       const transactionId = req.body.transactionId;
       const payment = await createInvoice(transactionId, +price, hotelApiId, email);
@@ -27,11 +26,9 @@ class Controller {
 
   static async getCallbackXendit(req, res, next) {
     try {
-      console.log("masuk");
-      console.log(req.body);
       const status = req.body.status;
       if (status === "PAID") {
-        const changeStatus = await Transaction.update(
+        const updateOne = await Transaction.update(
           {
             status: "PAID",
           },
@@ -41,16 +38,12 @@ class Controller {
             },
           }
         );
-        res.status(200).json({ message: "success" });
+        if(updateOne[0] === 0) throw {name: 'Transaction id not found'}
+        res.status(200).json({ msg: "success" });
       } else {
-        throw {
-          code: 402,
-          name: "Payment Failed",
-          message: "Payment Failed",
-        };
+        throw { name: 'Payment Fail'};
       }
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }

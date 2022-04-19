@@ -40,7 +40,7 @@ afterAll(async () => {
   await Transaction.destroy({ truncate: true, cascade: true, restartIdentity: true });
 });
 
-describe("Get Transaction Test", function(){
+describe("Get Transaction Test By Customer Id", function(){
   describe('Success', function(){
     it('return access_token with status 200', async function(){
       const res = await request(app).get('/transaction').set("access_token", access_token)
