@@ -4,7 +4,7 @@
   "description": "server",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --forceExit --runInBand --coverage",
+    "test": "jest --detectOpenHandles --forceExit --runInBand --coverage --silent",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www"
   },
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/palms-ballroom/palms-ballroom-server.git"
   },
   "keywords": [],
-  "author": "palms-ballroom",
+  "author": "Palms Ballroom",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/palms-ballroom/palms-ballroom-server/issues"

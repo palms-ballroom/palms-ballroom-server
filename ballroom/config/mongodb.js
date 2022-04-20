@@ -4,8 +4,8 @@ if (process.env.NODE_ENV !== "production") {
 
 const { MongoClient } = require("mongodb");
 // or as an es module:
-// import { MongoClient } from 'mongodb'
 const url = process.env.MONGODB_ATLAS_URI;
+
 // Connection URL
 const client = new MongoClient(url);
 
@@ -14,6 +14,7 @@ const dbName = "palmsBallroom";
 
 let db;
 
+// Use connect method to connect to the server
 async function connect() {
   try {
     await client.connect();
@@ -23,7 +24,6 @@ async function connect() {
   } catch (err) {
     throw err;
   }
-  // Use connect method to connect to the server
 }
 
 function getDB() {
@@ -33,5 +33,5 @@ function getDB() {
 module.exports = {
   connect,
   getDB,
-  client
+  client,
 };

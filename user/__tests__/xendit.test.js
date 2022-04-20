@@ -68,7 +68,6 @@ describe("Create Payment test", function () {
         .post("/xendit")
         .set("access_token", access_token)
         .send(payload);
-
       expect(res.status).toBe(400);
       expect(res.body).toHaveProperty("msg");
       expect(res.body).toHaveProperty("msg", res.body.msg);
@@ -82,7 +81,6 @@ describe("Create Payment test", function () {
         .post("/xendit")
         .set("access_token", access_token)
         .send(payload);
-
       expect(res.status).toBe(400);
       expect(res.body).toHaveProperty("msg");
       expect(res.body).toHaveProperty("msg", res.body.msg);
@@ -93,7 +91,6 @@ describe("Create Payment test", function () {
         transactionId: "4",
       };
       const res = await request(app).post("/xendit").send(payload);
-
       expect(res.status).toBe(401);
       expect(res.body).toHaveProperty("msg");
       expect(res.body).toHaveProperty("msg", res.body.msg);

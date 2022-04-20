@@ -8,8 +8,7 @@ const ballroom = database.collection("ballrooms");
 beforeAll(async () => {
   try {
     await connect();
-    const insertBallroom = await ballroom.insertMany(data);
-    console.log("insertBallroom: ", insertBallroom);
+    await ballroom.insertMany(data);
   } catch (error) {
     console.log("error: ", error);
   }
@@ -41,11 +40,8 @@ describe("GET /ballroom/", () => {
 
     it("GET /ballroom/:id - success get ballroom by Id 10391433", async () => {
       const res = await request(app).get("/ballroom/10391433");
-      console.log("res.status: ", res.status);
-      console.log("res.body: ", res.body);
       expect(res.status).toBe(200);
       expect(res.body).toBeInstanceOf(Object);
-
       expect(res.body).toHaveProperty("_id", expect.any(String));
       expect(res.body).toHaveProperty("id", expect.any(Number));
       expect(res.body).toHaveProperty("id", 2);

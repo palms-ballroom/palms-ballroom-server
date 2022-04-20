@@ -1,58 +1,18 @@
 [
   {
-    "hotelId": "331903910rw13131",
-    "price": 5000000,
-    "status": "PAID",
-    "bookDateEnd": "Apr 30, 2022",
-    "bookDateStart": "Apr 31, 2022",
-    "customerId": 4
-  },
-  {
-    "hotelId": "331903910rw13132",
-    "price": 10000000,
-    "status": "UNPAIN",
-    "bookDateEnd": "Apr 1, 2022",
-    "bookDateStart": "Apr 2, 2022",
-    "customerId": 3
-  },
-  {
-    "hotelId": "331903910rw13132",
-    "price": 10000000,
-    "status": "UNPAIN",
-    "bookDateEnd": "Apr 18, 2022",
-    "bookDateStart": "Apr 20, 2022",
-    "customerId": 4
-  },
-  {
-    "hotelId": "331903910rw13133",
-    "price": 1000000,
+    "hotelId": "306854",
+    "price": 137100000,
     "status": "UNPAID",
-    "bookDateEnd": "Apr 22, 2022",
-    "bookDateStart": "Apr 25, 2022",
+    "bookDateEnd": "2022-7-12",
+    "bookDateStart": "2022-7-12",
     "customerId": 4
   },
   {
-    "hotelId": "331903910rw13155",
-    "price": 10000000,
+    "hotelId": "10391433",
+    "price": 320000000,
     "status": "UNPAID",
-    "bookDateEnd": "Apr 3, 2022",
-    "bookDateStart": "Apr 4, 2022",
-    "customerId": 4
-  },
-  {
-    "hotelId": "331903910rw13156",
-    "price": 10000000,
-    "status": "PAID",
-    "bookDateEnd": "Apr 3, 2022",
-    "bookDateStart": "Apr 4, 2022",
-    "customerId": 4
-  },
-  {
-    "hotelId": "331903910rw13155",
-    "price": 10000000,
-    "status": "UNPAID",
-    "bookDateEnd": "Apr 26, 2022",
-    "bookDateStart": "Apr 28, 2022",
+    "bookDateEnd": "2022-7-7",
+    "bookDateStart": "2022-7-7",
     "customerId": 3
   }
 ]

@@ -1,7 +1,6 @@
 const { comparePassword } = require("../helpers/bcrypt");
 const { createToken } = require("../helpers/jwt");
 const { User } = require("../models/");
-const axios = require("axios");
 
 class AuthController {
   static async register(req, res, next) {

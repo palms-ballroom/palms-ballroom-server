@@ -9,6 +9,7 @@ class Controller {
       next(error);
     }
   }
+
   static async getOne(req, res, next) {
     try {
       const ballroom = await Ballroom.findOne(req.params.hotelApiId);
@@ -24,6 +25,7 @@ class Controller {
       next(error);
     }
   }
+
   static async getHotelByCity(req, res, next) {
     try {
       const ballrooms = await Ballroom.findByCity(req.params.city);
@@ -39,9 +41,22 @@ class Controller {
       next(error);
     }
   }
+
   static async create(req, res, next) {
     try {
-      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, city } = req.body;
+      const {
+        hotelApiId,
+        userId,
+        name,
+        pricePerHour,
+        pricePerDay,
+        mainImg,
+        images1,
+        images2,
+        images3,
+        images4,
+        city,
+      } = req.body;
       const ballroom = await Ballroom.create({
         hotelApiId: +hotelApiId,
         userId: +userId,
@@ -67,9 +82,22 @@ class Controller {
       next(error);
     }
   }
+
   static async update(req, res, next) {
     try {
-      const { hotelApiId, userId, name, pricePerHour, pricePerDay, mainImg, images1, images2, images3, images4, city } = req.body;
+      const {
+        hotelApiId,
+        userId,
+        name,
+        pricePerHour,
+        pricePerDay,
+        mainImg,
+        images1,
+        images2,
+        images3,
+        images4,
+        city,
+      } = req.body;
       const ballroom = await Ballroom.findOne(req.params.hotelApiId);
       if (!ballroom) {
         throw {
@@ -96,6 +124,7 @@ class Controller {
       next(error);
     }
   }
+
   static async delete(req, res, next) {
     try {
       const ballroom = await Ballroom.findOne(req.params.hotelApiId);
@@ -112,6 +141,7 @@ class Controller {
       next(error);
     }
   }
+
   static async bookingHotelById(req, res, next) {
     try {
       const { customerId, bookingDate, name } = req.body;

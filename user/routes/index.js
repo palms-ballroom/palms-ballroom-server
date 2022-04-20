@@ -7,7 +7,7 @@ const { authenticate, authorizeCustomer } = require("../middleware/authAuthor");
 router.get("/", AuthController.seeUser);
 router.post("/login", AuthController.login);
 router.post("/registerCustomer", AuthController.registerCustomer);
-router.use(authenticate); //authorizeCustomer,
+router.use(authenticate);
 router.get("/transaction", TransactionController.getTransactionByCustomerId);
 router.get("/transaction/:hotelId", TransactionController.getTransactionByHotelId);
 router.post("/transaction/:hotelId", authorizeCustomer, TransactionController.bookHotel);

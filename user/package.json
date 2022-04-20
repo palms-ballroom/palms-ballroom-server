@@ -23,7 +23,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jest --detectOpenHandles --forceExit --runInBand --coverage",
+    "test": "jest --detectOpenHandles --forceExit --runInBand --coverage --silent",
     "dev": "nodemon ./bin/www"
   },
   "keywords": [],
