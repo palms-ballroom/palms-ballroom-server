@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
-const userUrl = "http://localhost:4002";
-const ballroomUrl = "http://localhost:4001";
+const userUrl = "https://palms-server-user.herokuapp.com";
+const ballroomUrl = "https://palms-server-ballroom.herokuapp.com";
 const axios = require("axios");
 const PORT = process.env.PORT || 4000;
 
