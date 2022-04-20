@@ -137,12 +137,7 @@ const typeDefs = gql`
       name: String
       role: String
     ): String #aman
-    createInvoice(
-      hotelApiId: Int
-      access_token: String
-      transactionId: ID!
-      price: Int
-    ): XenditInvoices
+    createInvoice(access_token: String, transactionId: ID!, price: Int): XenditInvoices
   }
 `;
 

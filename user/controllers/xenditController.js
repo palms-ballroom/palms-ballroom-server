@@ -6,9 +6,8 @@ class Controller {
     try {
       const { price } = req.body;
       const email = req.user.email;
-      const hotelApiId = req.body.hotelApiId;
       const transactionId = req.body.transactionId;
-      const payment = await createInvoice(transactionId, +price, hotelApiId, email);
+      const payment = await createInvoice(transactionId, +price, email);
       res.status(201).json({
         message: "Invoice Created",
         data: {
