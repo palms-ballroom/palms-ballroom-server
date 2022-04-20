@@ -11,7 +11,7 @@ class XenditInvoice {
     return invoice.createInvoice({
       externalID: transactionId,
       amount,
-      successRedirectURL: `http://localhost:3000/thankPage`,
+      successRedirectURL: `https://palms-client-user.web.app/thankPage`,
       payerEmail: payerEmail,
     });
   }
