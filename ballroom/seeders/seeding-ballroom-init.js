@@ -6,7 +6,9 @@ const { MongoClient } = require("mongodb");
 const data = require("./ballroom-init.json");
 
 // Replace the uri string with your MongoDB deployment's connection string.
-const url = process.env.MONGODB_ATLAS_URI || "mongodb+srv://palmsballroom:rendang$2022@cluster0.3pvnk.mongodb.net/ballroom?retryWrites=true&w=majority";
+const url =
+  process.env.MONGODB_ATLAS_URI ||
+  "mongodb+srv://palmsballroom:rendang$2022@cluster0.3pvnk.mongodb.net/ballroom?retryWrites=true&w=majority";
 
 const client = new MongoClient(url);
 
@@ -20,9 +22,7 @@ async function run() {
       delete el.id;
     });
 
-    const insertBallroom = await ballroom.insertMany(data);
-
-    console.log(insertBallroom);
+    await ballroom.insertMany(data);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();

@@ -1,7 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server");
 const userUrl = "http://localhost:4002";
 const ballroomUrl = "http://localhost:4001";
-const redis = require("./config/redis");
 const axios = require("axios");
 const PORT = process.env.PORT || 4000;
 
@@ -230,7 +229,6 @@ const resolvers = {
   Mutation: {
     registerCustomer: async (_, args) => {
       try {
-        console.log(args);
         const response = await axios({
           method: "post",
           url: `${userUrl}/registerCustomer`,
@@ -315,7 +313,6 @@ const resolvers = {
           url: `${ballroomUrl}/ballroom/transaction/${args.hotelApiId}`,
           data: args,
         });
-        console.log("masuk 271");
         const { bookDateStart, price } = ballroom.data.data;
         const transaction = await axios({
           method: "post",
@@ -330,7 +327,6 @@ const resolvers = {
         });
         return transaction.data.msg;
       } catch (error) {
-        console.log(error.response);
         return error.response.data.message;
       }
     },

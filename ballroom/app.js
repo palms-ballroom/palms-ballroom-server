@@ -4,7 +4,6 @@ if (process.env.NODE_ENV !== "production") {
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 const ballroomRoute = require("./routes/ballroomRouter");
 const errorHandler = require("./middlewares/errorHandler");
 
@@ -20,4 +19,4 @@ app.use("/ballroom", ballroomRoute);
 
 app.use(errorHandler);
 
-module.exports = app
+module.exports = app;
