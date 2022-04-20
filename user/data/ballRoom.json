@@ -1,0 +1,18 @@
+[
+  {
+    "hotelId": "306854",
+    "price": 137100000,
+    "status": "UNPAID",
+    "bookDateEnd": "2022-7-12",
+    "bookDateStart": "2022-7-12",
+    "customerId": 4
+  },
+  {
+    "hotelId": "10391433",
+    "price": 320000000,
+    "status": "UNPAID",
+    "bookDateEnd": "2022-7-7",
+    "bookDateStart": "2022-7-7",
+    "customerId": 3
+  }
+]

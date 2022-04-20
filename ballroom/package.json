@@ -1,0 +1,33 @@
+{
+  "name": "palms-ballroom-server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --forceExit --runInBand --coverage --silent",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palms-ballroom/palms-ballroom-server.git"
+  },
+  "keywords": [],
+  "author": "Palms Ballroom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palms-ballroom/palms-ballroom-server/issues"
+  },
+  "homepage": "https://github.com/palms-ballroom/palms-ballroom-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.5.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  }
+}

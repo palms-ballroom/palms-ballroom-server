@@ -1,0 +1,502 @@
+﻿[
+  {
+    "id": 1,
+    "hotelApiId": 306854,
+    "userId": 1,
+    "name": "Wyndham Casablanca Jakarta",
+    "pricePerHour": 27420000,
+    "pricePerDay": 137100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/23/92/e7/wyndham-casablanca-jakarta.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/19/23/87/f8/wyndham-casablanca-jakarta.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/23/89/ac/wyndham-casablanca-jakarta.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/23/95/68/wyndham-casablanca-jakarta.jpg",
+    "clicked": 0,
+    "city": "Jakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "hotelApiId": 10391433,
+    "userId": 1,
+    "name": "The Westin Jakarta",
+    "pricePerHour": 64000000,
+    "pricePerDay": 320000000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/75/international-wedding.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/6f/wayra-level-67.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/df/24/24/exterior.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/db/f1/76/traditional-wedding.jpg",
+    "clicked": 0,
+    "city": "Jakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "hotelApiId": 1799977,
+    "userId": 1,
+    "name": "Merlynn Park Hotel",
+    "pricePerHour": 18280000,
+    "pricePerDay": 91400000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/52/58/96/merlynn-park-hotel.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/52/58/57/merlynn-park-hotel.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/52/57/cc/merlynn-park-hotel.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/0e/54/b7/1c/merlynn-park-hotel.jpg",
+    "clicked": 0,
+    "city": "Jakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "hotelApiId": 2285994,
+    "userId": 1,
+    "name": "Pullman Jakarta Central Park",
+    "pricePerHour": 51140000,
+    "pricePerDay": 255700000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/05/fe/cf/f4/pullman-jakarta-central.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/05/fe/cf/86/pullman-jakarta-central.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-w/1c/cf/7c/95/exterior-view.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/05/fe/d0/0b/pullman-jakarta-central.jpg",
+    "clicked": 0,
+    "city": "Jakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "hotelApiId": 6897800,
+    "userId": 1,
+    "name": "Raffles Jakarta",
+    "pricePerHour": 88860000,
+    "pricePerDay": 444300000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/07/27/c8/cc/raffles-jakarta.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0a/03/c5/24/butler-service-at-artist.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-w/1d/6c/93/e2/exterior-view.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-w/07/8a/7c/a7/raffles-jakarta.jpg",
+    "clicked": 0,
+    "city": "Jakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "hotelApiId": 673618,
+    "userId": 1,
+    "name": "Peppers Seminyak",
+    "pricePerHour": 124000000,
+    "pricePerDay": 620000000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/06/f6/d0/75/peppers-sentosa.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/06/f6/d0/7e/peppers-sentosa.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/06/f6/e1/29/peppers-sentosa.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/06/f6/e1/47/peppers-sentosa.jpg",
+    "clicked": 0,
+    "city": "Bali",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "hotelApiId": 7949561,
+    "userId": 1,
+    "name": "Alila Seminyak",
+    "pricePerHour": 106860000,
+    "pricePerDay": 534300000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/0b/6c/4f/75/alila-seminyak-panorama.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0f/96/21/0d/beach-suite.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/21/9f/53/12/exterior.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/0d/93/67/65/alila-seminyak.jpg",
+    "clicked": 0,
+    "city": "Bali",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "hotelApiId": 817602,
+    "userId": 1,
+    "name": "Le Jardin Boutique Villas, Seminyak",
+    "pricePerHour": 89420000,
+    "pricePerDay": 447100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/04/47/6f/34/two-bedrooms-villa.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-s/12/66/07/e6/le-jardin-boutique-villas.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/08/3a/72/74/honeymooners-welcome.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/02/34/fa/e2/candle-light-dinner-atmosphere.jpg",
+    "clicked": 0,
+    "city": "Bali",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "hotelApiId": 14889591,
+    "userId": 1,
+    "name": "Hyatt Regency Bali",
+    "pricePerHour": 60580000,
+    "pricePerDay": 302900000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/18/af/dc/48/hyatt-regency-bali.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/18/af/d7/43/hyatt-regency-bali.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/18/af/dc/87/hyatt-regency-bali.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/18/af/c7/64/hyatt-regency-bali.jpg",
+    "clicked": 0,
+    "city": "Bali",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "hotelApiId": 7248999,
+    "userId": 1,
+    "name": "Maya Sanur Resort & Spa",
+    "pricePerHour": 99420000,
+    "pricePerDay": 497100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/d0/47/e9/maya-sanur-resort-and.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/d0/49/fe/maya-sanur-resort-and.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/d0/47/cd/maya-sanur-resort-and.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/d0/47/dc/maya-sanur-resort-and.jpg",
+    "clicked": 0,
+    "city": "Bali",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "hotelApiId": 302124,
+    "userId": 1,
+    "name": "Shangri-La Surabaya",
+    "pricePerHour": 36580000,
+    "pricePerDay": 182900000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/e3/91/b2/residence-suite-bedroom.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/19/e3/93/ac/presidential-suite-bedroom.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1c/61/fa/f1/shangri-la-hotel-surabaya.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/01/2d/00/a-refined-oasis-of-quietude.jpg",
+    "clicked": 0,
+    "city": "Surabaya",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "hotelApiId": 307083,
+    "userId": 1,
+    "name": "Bumi Surabaya City Resort",
+    "pricePerHour": 48000000,
+    "pricePerDay": 240000000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/08/2c/6a/9e/bumi-surabaya-city-resort.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/07/88/e8/ab/bumi-surabaya-city-resort.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/07/88/e8/34/bumi-surabaya-city-resort.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/12/82/99/fe/omah-biscr-is-a-unique.jpg",
+    "clicked": 0,
+    "city": "Surabaya",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "hotelApiId": 301785,
+    "userId": 1,
+    "name": "Sheraton Surabaya Hotel & Towers",
+    "pricePerHour": 29140000,
+    "pricePerDay": 145700000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/08/dd/43/ad/sheraton-surabaya-hotel.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/08/dd/46/35/sheraton-surabaya-hotel.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/21/8e/98/4f/bar-area-at-new-kawi.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/08/dd/43/e2/sheraton-surabaya-hotel.jpg",
+    "clicked": 0,
+    "city": "Surabaya",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "hotelApiId": 307082,
+    "userId": 1,
+    "name": "JW Marriott Hotel Surabaya",
+    "pricePerHour": 37140000,
+    "pricePerDay": 185700000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/12/4d/f3/15/new-pavilion.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0f/b7/94/9c/lobby-lounge.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/21/94/68/41/lobby-lounge.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/14/8d/21/a0/swimming-pool-jw-marriott.jpg",
+    "clicked": 0,
+    "city": "Surabaya",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "hotelApiId": 2559562,
+    "userId": 1,
+    "name": "Wyndham Surabaya",
+    "pricePerHour": 19720000,
+    "pricePerDay": 98600000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/0f/a0/03/c1/wyndham-surabaya.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0f/a0/08/54/wyndham-surabaya.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/1d/b2/b5/e0/exterior.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/0f/a0/03/db/wyndham-surabaya.jpg",
+    "clicked": 0,
+    "city": "Surabaya",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "hotelApiId": 1453711,
+    "userId": 1,
+    "name": "GH Universal Hotel",
+    "pricePerHour": 27420000,
+    "pricePerDay": 137100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/d4/fc/56/chapel-of-the-angel.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-w/1b/d4/f9/e2/gh-universal-hotel.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/09/4e/35/a5/g-h-universal.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-w/1c/9f/56/65/gh-universal-hotel.jpg",
+    "clicked": 0,
+    "city": "Bandung",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "hotelApiId": 1438771,
+    "userId": 1,
+    "name": "Hilton Bandung",
+    "pricePerHour": 73720000,
+    "pricePerDay": 368600000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/10/ed/8c/e5/junior-suite-bathroom.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/21/5e/a8/2d/pool.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/21/5e/a8/16/exterior.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/14/b1/f5/87/hilton-queen-deluxe.jpg",
+    "clicked": 0,
+    "city": "Bandung",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "hotelApiId": 301781,
+    "userId": 1,
+    "name": "Sheraton Bandung Hotel & Towers",
+    "pricePerHour": 34580000,
+    "pricePerDay": 172900000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/07/82/92/90/sheraton-bandung-hotel.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/bd/dc/49/a-view-from-your-room.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/07/82/93/a8/sheraton-bandung-hotel.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/07/82/93/c2/sheraton-bandung-hotel.jpg",
+    "clicked": 0,
+    "city": "Bandung",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "hotelApiId": 505226,
+    "userId": 1,
+    "name": "Padma Hotel Bandung",
+    "pricePerHour": 50000000,
+    "pricePerDay": 250000000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/oyster/2600/07/2d/a5/b0/front-desk--v4954461.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/oyster/2600/07/2d/a5/0b/premier-suite--v4954479.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/a4/57/8c/padma-hotel-bandung.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-w/08/c3/20/73/padma-hotel-bandung.jpg",
+    "clicked": 0,
+    "city": "Bandung",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "hotelApiId": 3226872,
+    "userId": 1,
+    "name": "The Trans Luxury Hotel",
+    "pricePerHour": 43420000,
+    "pricePerDay": 217100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/07/00/0f/be/the-trans-luxury-hotel.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0d/33/20/d0/premier-room-twin-share.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/16/35/6f/8d/the-trans-luxury-hotel.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/0c/12/ac/1b/premier-room.jpg",
+    "clicked": 0,
+    "city": "Bandung",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "hotelApiId": 13008958,
+    "userId": 1,
+    "name": "Yogyakarta Marriott Hotel",
+    "pricePerHour": 34280000,
+    "pricePerDay": 171400000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/12/4d/f6/6f/m-club.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/12/bb/ee/aa/yogyakarta-kitchen.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/12/4d/f6/64/exterior-night.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-m/1280/12/4d/f6/68/lobby-check-in-ara.jpg",
+    "clicked": 0,
+    "city": "Yogyakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "hotelApiId": 3737584,
+    "userId": 1,
+    "name": "Hotel Tentrem Yogyakarta",
+    "pricePerHour": 41140000,
+    "pricePerDay": 205700000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/05/9b/6e/8d/hotel-tentrem-yogyakarta.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/05/9b/51/90/hotel-tentrem-yogyakarta.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/18/f4/58/63/pool-bar.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/05/9b/57/09/hotel-tentrem-yogyakarta.jpg",
+    "clicked": 0,
+    "city": "Yogyakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "hotelApiId": 307076,
+    "userId": 1,
+    "name": "Hyatt Regency Yogyakarta",
+    "pricePerHour": 24860000,
+    "pricePerDay": 124300000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/0b/9b/c4/48/executive-room.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/03/80/d6/f1/hyatt-regency-yogyakarta.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-o/0b/9b/c0/50/hyatt-regency-yogyakarta.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/0b/9b/c4/4a/hyatt-regency-yogyakarta.jpg",
+    "clicked": 0,
+    "city": "Yogyakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "hotelApiId": 446805,
+    "userId": 1,
+    "name": "The Phoenix Hotel Yogyakarta - MGallery Collection",
+    "pricePerHour": 20580000,
+    "pricePerDay": 102900000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-o/09/0f/69/f7/pool-side-balcony.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-s/02/71/70/95/deluxe-room.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-w/1c/d1/36/aa/exterior-view.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-o/02/71/70/92/pool-side.jpg",
+    "clicked": 0,
+    "city": "Yogyakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "hotelApiId": 301783,
+    "userId": 1,
+    "name": "Sheraton Mustika Yogyakarta Resort & Spa",
+    "pricePerHour": 23420000,
+    "pricePerDay": 117100000,
+    "mainImg": "https://media-cdn.tripadvisor.com/media/photo-s/01/73/ee/d1/junior-suite.jpg",
+    "images1": "https://media-cdn.tripadvisor.com/media/photo-o/0f/d8/93/4b/sheraton-mustika-yogyakarta.jpg",
+    "images2": "https://media-cdn.tripadvisor.com/media/photo-m/1280/22/08/13/08/taman-sari-water-castle.jpg",
+    "images3": "https://media-cdn.tripadvisor.com/media/photo-s/01/73/ee/d2/villa-spa.jpg",
+    "clicked": 0,
+    "city": "Yogyakarta",
+    "booked": [
+      {
+        "customerId": "",
+        "date": ""
+      }
+    ]
+  }
+]
