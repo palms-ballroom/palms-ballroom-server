@@ -66,8 +66,11 @@ const typeDefs = gql`
   type Transaction {
     id: ID
     hotelId: String
+    hotelName: String
+    hotelCity: String
     price: Int
     status: String
+    mainImg: String
     bookDateStart: String
     bookDateEnd: String
     customerId: Int
@@ -81,11 +84,27 @@ const typeDefs = gql`
     getBallrooms: [Ballroom] #aman
     getBallroomByHotelId(hotelApiId: ID!): Ballroom #aman
     userTransactions(access_token: String): [Transaction]
+    latestUserTransactions(access_token: String): Transaction
     hotelTransactions(access_token: String, hotelApiId: ID!): [Transaction]
   }
   type Mutation {
-    registerUser(access_token: String, imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
-    registerCustomer(imageUrl: String, email: String, username: String, password: String, phoneNumber: String, address: String): String #aman
+    registerUser(
+      access_token: String
+      imageUrl: String
+      email: String
+      username: String
+      password: String
+      phoneNumber: String
+      address: String
+    ): String #aman
+    registerCustomer(
+      imageUrl: String
+      email: String
+      username: String
+      password: String
+      phoneNumber: String
+      address: String
+    ): String #aman
     loginUser(email: String, password: String): LoginInfo #aman
     addBallroom(
       hotelApiId: ID!
@@ -110,8 +129,15 @@ const typeDefs = gql`
       city: String
     ): String #aman
     deleteBallroom(hotelApiId: ID!): String #aman
-    bookingBallroom(access_token: String, customerId: ID!, hotelApiId: ID!, bookingDate: String!, name: String, role: String): String #aman
-    createInvoice(hotelApiId: Int, access_token: String, transactionId: ID!, price: Int): XenditInvoices
+    bookingBallroom(
+      access_token: String
+      customerId: ID!
+      hotelApiId: ID!
+      bookingDate: String!
+      name: String
+      role: String
+    ): String #aman
+    createInvoice(access_token: String, transactionId: ID!, price: Int): XenditInvoices
   }
 `;
 
@@ -148,6 +174,26 @@ const resolvers = {
           return response.data.message;
         }
         return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    latestUserTransactions: async (_, args) => {
+      try {
+        const { data } = await axios({
+          method: "get",
+          url: `${userUrl}/transaction`,
+          headers: {
+            access_token: args.access_token,
+          },
+        });
+        const hotelId = data[data.length - 1].hotelId;
+        const latestData = data[data.length - 1];
+        const { data: image } = await axios.get(`${ballroomUrl}/ballroom/${hotelId}`);
+        latestData.hotelName = image.name;
+        latestData.hotelCity = image.city;
+        latestData.mainImg = image.mainImg;
+        return latestData;
       } catch (error) {
         console.log(error);
       }

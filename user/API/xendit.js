@@ -7,11 +7,11 @@ const { Invoice } = x;
 const invoice = new Invoice({});
 
 class XenditInvoice {
-  static createInvoice(transactionId, amount, hotelApiId, payerEmail) {
+  static createInvoice(transactionId, amount, payerEmail) {
     return invoice.createInvoice({
       externalID: transactionId,
       amount,
-      successRedirectURL: `http://localhost:3000/detail/${hotelApiId}`,
+      successRedirectURL: `http://localhost:3000/thankPage`,
       payerEmail: payerEmail,
     });
   }
